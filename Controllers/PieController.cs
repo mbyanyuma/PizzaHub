@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PizzaHub.Models;
+using PizzaHub.ViewModels;
 
 namespace PizzaHub.Controllers
 {
@@ -20,7 +21,15 @@ namespace PizzaHub.Controllers
 
         public ViewResult List()
         {
-            return View(_pieRepository.AllPies);
+            //ViewBag.CurrentCategory = "cheese pizza";
+
+            // return View(_pieRepository.AllPies);
+
+            PiesListViewModel piesListViewModel = new PiesListViewModel();
+            piesListViewModel.Pies = _pieRepository.AllPies;
+
+            piesListViewModel.CurrentCategory = "Cheese Pizza";
+            return View(piesListViewModel);
         }
 
     }
