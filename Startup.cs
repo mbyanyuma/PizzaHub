@@ -27,8 +27,8 @@ namespace PizzaHub
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("PizzaConnection")));
 
-            services.AddScoped<IPieRepository, MockPieRepository>();
-            services.AddScoped<ICategoryRepository, MockCategoryRepository>();
+            services.AddScoped<IPieRepository, PieRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
             //services.AddTransient<>()
             //services.AddSingleton<>()
             services.AddControllersWithViews();
